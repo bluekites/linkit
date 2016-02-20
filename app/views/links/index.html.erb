@@ -1,0 +1,12 @@
+<% provide(:title, "LinkIt") %>
+
+<%= link_to "New Link", new_link_path %>
+
+<div class="link-wrapper">
+  <% @links.each do |link| %>
+    <h2>
+      <%= link.title %>
+      <%= link.url %>
+    </h2>
+  <% end %>
+</div>
