@@ -4,8 +4,7 @@
   <div class="link-wrapper">
     <% @links.each do |link| %>
       <h2>
-        <%= link.title %>
-        <%= link.url %>
+        <%= link_to link.title, "#{link.url}" %>
       </h2>
       <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
         <span class="glyphicon glyphicon-chevron-up"></span>

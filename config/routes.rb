@@ -7,5 +7,8 @@ Rails.application.routes.draw do
     end
     resources :comments, only: [:create, :edit, :destroy]
   end
+  
+  get '*path' => redirect('/404')
+  
   root 'links#index'
 end
