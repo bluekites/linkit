@@ -3,7 +3,7 @@
 <div class="container">
   <h2><%= @link.title %></h2>
   <h3><%= link_to @link.url, "#{@link.url}" %></h3>
-  
+  <p>Submitted by <%= @link.user.username %> <%= time_ago_in_words(@link.created_at) %> ago</p>
   <%= link_to like_link_path(@link), method: :put, class: "btn btn-default btn-sm" do %>
     <span class="glyphicon glyphicon-chevron-up"></span>
     Upvote
