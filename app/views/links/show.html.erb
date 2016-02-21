@@ -18,6 +18,8 @@
     <%= link_to "Edit", edit_link_path, class: "btn btn-default" %>
     <%= link_to "Delete", link_path(@link), class: "btn btn-default", method: :delete, data: {confirm: "Are you sure?"} %>
   </div>
-  <%= render './comments/comments' %>
+  <% if user_signed_in? %>
+    <%= render './comments/comments' %>
+  <% end %>
 </div>
 

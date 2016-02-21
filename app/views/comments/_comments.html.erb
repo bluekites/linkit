@@ -1,6 +1,6 @@
 
 <div class="panel panel-default">
-<h3 class="panel-heading"><%= @link.comments.count %> Comments</h3>
+<h3 class="panel-heading"><%= pluralize(@link.comments.count, "Comment") %></h3>
   <div class="panel-body">
     <% @link.comments.each do |comment| %>
       <div class="comments">
