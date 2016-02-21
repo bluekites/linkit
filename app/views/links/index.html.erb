@@ -1,25 +1,30 @@
 <% provide(:title, "LinkIt") %>
 
-<div class="link-wrapper">
-  <% @links.each do |link| %>
-    <h2>
-      <%= link.title %>
-      <%= link.url %>
-    </h2>
-    <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-chevron-up"></span>
-      Upvote
-      <%= link.get_upvotes.size %>
+<div class="container">
+  <div class="link-wrapper">
+    <% @links.each do |link| %>
+      <h2>
+        <%= link.title %>
+        <%= link.url %>
+      </h2>
+      <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-up"></span>
+        Upvote
+        <%= link.get_upvotes.size %>
+      <% end %>
+      <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-down"></span>
+        Downvote
+        <%= link.get_downvotes.size %>
+      <% end %>
+      <%= link_to "Show", link_path(link), class: "btn btn-primary btn-sm" %>
+      <% if link.user == current_user %>
+        <div class="btn-group">
+          <%= link_to "Edit", edit_link_path(link), class: "btn btn-default btn-sm" %>
+          <%= link_to "Delete", link_path(link), class: "btn btn-default btn-sm", method: :delete %>
+        </div>
+      <% end %>
+      <hr>
     <% end %>
-    <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
-      <span class="glyphicon glyphicon-chevron-down"></span>
-      Downvote
-      <%= link.get_downvotes.size %>
-    <% end %>
-    <%= link_to "Show", link_path(link) %>
-    <% if link.user == current_user %>
-      <%= link_to "Edit", edit_link_path(link) %>
-      <%= link_to "Delete", link_path(link), method: :delete %>
-    <% end %>
-  <% end %>
+  </div>
 </div>

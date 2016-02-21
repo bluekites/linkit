@@ -3,7 +3,7 @@
 
 <% @link.comments.each do |comment| %>
   <div class="comments">
-    <p>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.email %></p>
+    <p>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.username %></p>
     <h5><%= comment.body %></h5>
   </div>
   <% if comment.user == current_user %>
