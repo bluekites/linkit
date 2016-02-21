@@ -1,3 +1,19 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.panel.panel-default{
+  margin-top: 2em;
+}
+
+h3.panel-heading {
+  margin-top: 0;
+}
+
+.comment-wrapper {
+  margin-left: 2em;
+}
+
+textarea {
+  resize: none;
+}

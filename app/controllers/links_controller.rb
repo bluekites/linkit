@@ -17,7 +17,8 @@ class LinksController < ApplicationController
   def create
     @link = current_user.links.build(link_params)
     if @link.save
-      redirect_to link_path(@link), notice: "Link created successfully!"
+      flash[:success] = "Link created successfully!"
+      redirect_to link_path(@link)
     else
       render :new
     end
@@ -28,7 +29,8 @@ class LinksController < ApplicationController
   
   def update
     if @link.update(link_params)
-      redirect_to link_path(@link), notice: "Link updated successfully!"
+      flash[:success] = "Link updated successfully!"
+      redirect_to link_path(@link)
     else
       render :edit
     end
