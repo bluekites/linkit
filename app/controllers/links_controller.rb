@@ -39,6 +39,19 @@ class LinksController < ApplicationController
     redirect_to links_path
   end
   
+  #upvote and downvote methods
+  def upvote
+    @link = Link.find(params[:id])
+    @link.upvote_by current_user
+    redirect_to :back #will redirect them to the same page they were on
+  end
+  
+  def downvote
+    @link = Link.find(params[:id])
+    @link.downvote_by current_user
+    redirect_to :back
+  end
+  
   private
     
     def link_params
