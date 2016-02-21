@@ -6,5 +6,10 @@
       <%= link.title %>
       <%= link.url %>
     </h2>
+    <%= link_to "Show", link_path(link) %>
+    <% if link.user == current_user %>
+      <%= link_to "Edit", edit_link_path(link) %>
+      <%= link_to "Delete", link_path(link), method: :delete %>
+    <% end %>
   <% end %>
 </div>

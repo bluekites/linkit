@@ -1,6 +1,7 @@
 class LinksController < ApplicationController
   
   before_action :set_up_link, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
   
   def index
     @links = Link.all
@@ -10,11 +11,11 @@ class LinksController < ApplicationController
   end
   
   def new
-    @link = Link.new
+    @link = current_user.links.build #builds it from user instead of just a link
   end
   
   def create
-    @link = Link.new(link_params)
+    @link = current_user.links.build(link_params)
     if @link.save
       redirect_to link_path(@link), notice: "Link created successfully!"
     else
